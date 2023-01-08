@@ -4,7 +4,12 @@
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/opencv.hpp>
 
+#include <bram_uio.h>
 
+BRAM bram0(0,64000);
+
+const int target_width = 32;
+const int target_height = 18;
 
 class ImageSubscriber : public rclcpp::Node
 {
@@ -20,6 +25,8 @@ class ImageSubscriber : public rclcpp::Node
 					std::bind(&ImageSubscriber::onImageMsg, this, std::placeholders::_1)
 			);
 
+_			
+
 		}
 
 	private:
@@ -30,6 +37,24 @@ class ImageSubscriber : public rclcpp::Node
 
 			cv_bridge::CvImagePtr cv_ptr = cv_bridge::toCvCopy(msg, msg->encoding);
 			cv::Mat img = cv_ptr->image;
+
+			cvtColor(img, gray, COLOR_BGR2GRAY);
+
+			Mat resized;
+			cv::resize(gray, resized, Size(target_width, target_height));
+			int k = 0;
+			for (int i = 0; i < target_height; i++)
+			{
+				for (int j = 0; j < target_width; j++)
+				{
+					bram0[k] = resized(j,i);
+					k++;					
+				}
+				
+			}
+			
+			
+
 
 			RCLCPP_INFO(this->get_logger(), "Successfully loaded image");
 		}

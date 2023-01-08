@@ -1,12 +1,17 @@
 #include <chrono>
 #include <functional>
 #include <memory>
-#include <string>
+#include <string> 
+#include <iostream>
+#include <cmath>
 
 #include <rclcpp/rclcpp.hpp>
 #include <msg/set_position.hpp>
 
 using namespace std::chrono_literals;
+
+float x,y = 0.0;
+float [] invres = {0.0,0.0};
 
 class MotorPublisher : public rclcpp::Node
 {   
@@ -19,6 +24,17 @@ class MotorPublisher : public rclcpp::Node
         }
 
     private:
+    float* inverse(float x, float y){
+    float l1 = 1;
+    float l2 = 1;
+    float d = 2*l1*l2;
+    float n = (x*x+y*y)-(l1*l1-l2*l2);
+    float o1 =  atan(y/x) * (180/M_PI);
+    float o2 = acos(n/d) * (180/M_PI);
+     
+    float myNum[] = {o1,o2};
+    return myNum;
+    }
     void timer_callback()
     {
       //auto message = std_msgs::msg::String();
@@ -38,18 +54,81 @@ class MotorPublisher : public rclcpp::Node
 
       switch (pose)
       {
-      case 0:
+      case 0: // 
         /* code */
+        x = 2*sqrt(2);
+        y = 2*sqrt(2); 
+        
+        invres = inverse(x,y);
+
+        // publish message for first joint
+        message.data = joint_1 + std::to_string(invres[0]);
+        publisher_->publish(message);
+
+        // publish message for second joint
+        message.data = joint_2 + std::to_string(invres[1]);
+        publisher_->publish(message);
+
         break;
       case 1:
+
+      x = 1.00
+      y = 1.00
+      
+      invres = inverse(x,y);
+
+      // publish message for first joint
+        message.data = joint_1 + std::to_string(invres[0]);
+        publisher_->publish(message);
+
+        // publish message for second joint
+        message.data = joint_2 + std::to_string(invres[1]);
+        publisher_->publish(message);
         break;
         
       case 2:
+      x = 0.0;
+      y = 2.0
+      
+      invres = inverse(x,y);
+
+      // publish message for first joint
+        message.data = joint_1 + std::to_string(invres[0]);
+        publisher_->publish(message);
+
+        // publish message for second joint
+        message.data = joint_2 + std::to_string(invres[1]);
+        publisher_->publish(message);
         break;
 
       case 3:
+
+      x = 1.00;
+      y = 1.00
+
+      invres = inverse(x,y);
+
+      // publish message for first joint
+        message.data = joint_1 + std::to_string(invres[0]);
+        publisher_->publish(message);
+
+        // publish message for second joint
+        message.data = joint_2 + std::to_string(invres[1]);
+        publisher_->publish(message);
         break;
       case 4:
+      x = 2.0;
+      y = 0.0;
+
+      invres = inverse(x,y);
+
+      // publish message for first joint
+        message.data = joint_1 + std::to_string(invres[0]);
+        publisher_->publish(message);
+
+        // publish message for second joint
+        message.data = joint_2 + std::to_string(invres[1]);
+        publisher_->publish(message);
         break;
     
       
