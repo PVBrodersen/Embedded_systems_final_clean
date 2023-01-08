@@ -1,0 +1,10 @@
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/install/strip.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/install.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/list_install_components.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/rebuild_cache.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/edit_cache.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/test.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/image_subscriber.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/install/local.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/project_ros2_pkg_uninstall.dir
+/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg/CMakeFiles/uninstall.dir

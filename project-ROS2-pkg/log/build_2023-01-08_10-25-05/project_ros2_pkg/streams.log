@@ -1,0 +1,81 @@
+[0.025s] Invoking command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg -DCMAKE_INSTALL_PREFIX=/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg
+[0.169s] -- The C compiler identification is GNU 9.4.0
+[0.340s] -- The CXX compiler identification is GNU 9.4.0
+[0.353s] -- Check for working C compiler: /usr/bin/cc
+[0.445s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.446s] -- Detecting C compiler ABI info
+[0.535s] -- Detecting C compiler ABI info - done
+[0.551s] -- Detecting C compile features
+[0.552s] -- Detecting C compile features - done
+[0.557s] -- Check for working CXX compiler: /usr/bin/c++
+[0.654s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.655s] -- Detecting CXX compiler ABI info
+[0.751s] -- Detecting CXX compiler ABI info - done
+[0.766s] -- Detecting CXX compile features
+[0.766s] -- Detecting CXX compile features - done
+[0.772s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.810s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.810s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.105s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.184s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.197s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.326s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.362s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.469s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.553s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.556s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.558s] -- Looking for pthread.h
+[1.660s] -- Looking for pthread.h - found
+[1.661s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.756s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.756s] -- Looking for pthread_create in pthreads
+[1.827s] -- Looking for pthread_create in pthreads - not found
+[1.828s] -- Looking for pthread_create in pthread
+[1.917s] -- Looking for pthread_create in pthread - found
+[1.918s] -- Found Threads: TRUE  
+[2.132s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[2.294s] -- Found OpenCV: /usr/local (found version "4.6.0") 
+[2.296s] -- Found cv_bridge: 3.0.7 (/opt/ros/foxy/share/cv_bridge/cmake)
+[2.317s] -- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.426s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.432s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.432s] -- Configured cppcheck include dirs: 
+[2.432s] -- Configured cppcheck exclude dirs and/or files: 
+[2.437s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.437s] -- Configured cpplint exclude dirs and/or files: 
+[2.440s] -- Added test 'lint_cmake' to check CMake code style
+[2.446s] -- Added test 'uncrustify' to check C / C++ code style
+[2.446s] -- Configured uncrustify additional arguments: 
+[2.447s] -- Added test 'xmllint' to check XML markup files
+[2.452s] -- Configuring done
+[2.471s] -- Generating done
+[2.473s] -- Build files have been written to: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg
+[2.483s] Invoked command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg -DCMAKE_INSTALL_PREFIX=/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg
+[2.486s] Invoking command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg -- -j4 -l4
+[2.536s] [35m[1mScanning dependencies of target image_subscriber[0m
+[2.715s] [ 50%] [32mBuilding CXX object CMakeFiles/image_subscriber.dir/src/image_subscriber.cpp.o[0m
+[10.186s] [100%] [32m[1mLinking CXX executable image_subscriber[0m
+[10.988s] /usr/bin/ld: warning: libopencv_imgcodecs.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_imgcodecs.so.406
+[10.988s] /usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/foxy/lib/libcv_bridge.so, may conflict with libopencv_core.so.406
+[11.003s] [100%] Built target image_subscriber
+[11.016s] Invoked command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg -- -j4 -l4
+[11.056s] Invoking command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg
+[11.069s] -- Install configuration: ""
+[11.070s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/lib/project_ros2_pkg/image_subscriber
+[11.072s] -- Set runtime path of "/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/lib/project_ros2_pkg/image_subscriber" to ""
+[11.073s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/ament_index/resource_index/package_run_dependencies/project_ros2_pkg
+[11.074s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/ament_index/resource_index/parent_prefix_path/project_ros2_pkg
+[11.074s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/environment/ament_prefix_path.sh
+[11.074s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/environment/ament_prefix_path.dsv
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/environment/path.sh
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/environment/path.dsv
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/local_setup.bash
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/local_setup.sh
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/local_setup.zsh
+[11.075s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/local_setup.dsv
+[11.076s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/package.dsv
+[11.076s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/ament_index/resource_index/packages/project_ros2_pkg
+[11.076s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/cmake/project_ros2_pkgConfig.cmake
+[11.076s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/cmake/project_ros2_pkgConfig-version.cmake
+[11.076s] -- Installing: /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/install/project_ros2_pkg/share/project_ros2_pkg/package.xml
+[11.080s] Invoked command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg/build/project_ros2_pkg
