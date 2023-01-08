@@ -1,0 +1,59 @@
+[0.040s] Invoking command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/build/project_ros2_pkg': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg -DCMAKE_INSTALL_PREFIX=/home/philip/Embedded_programming/Embedded_systems_final_clean/install/project_ros2_pkg
+[0.186s] -- The C compiler identification is GNU 9.4.0
+[0.312s] -- The CXX compiler identification is GNU 9.4.0
+[0.320s] -- Check for working C compiler: /usr/bin/cc
+[0.434s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.435s] -- Detecting C compiler ABI info
+[0.554s] -- Detecting C compiler ABI info - done
+[0.570s] -- Detecting C compile features
+[0.571s] -- Detecting C compile features - done
+[0.575s] -- Check for working CXX compiler: /usr/bin/c++
+[0.718s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.720s] -- Detecting CXX compiler ABI info
+[0.872s] -- Detecting CXX compiler ABI info - done
+[0.889s] -- Detecting CXX compile features
+[0.889s] -- Detecting CXX compile features - done
+[0.893s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.944s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.944s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.418s] -- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.550s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.565s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.930s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[2.061s] -- Found FastRTPS: /opt/ros/foxy/include  
+[2.392s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.619s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[2.624s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.627s] -- Looking for pthread.h
+[2.915s] -- Looking for pthread.h - found
+[2.916s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.242s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[3.243s] -- Looking for pthread_create in pthreads
+[3.364s] -- Looking for pthread_create in pthreads - not found
+[3.365s] -- Looking for pthread_create in pthread
+[3.482s] -- Looking for pthread_create in pthread - found
+[3.483s] -- Found Threads: TRUE  
+[3.842s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[4.054s] -- Found OpenCV: /usr/local (found version "4.6.0") 
+[4.055s] -- Found cv_bridge: 3.0.7 (/opt/ros/foxy/share/cv_bridge/cmake)
+[4.084s] CMake Error at CMakeLists.txt:24 (find_package):
+[4.084s]   By not providing "Findbram_uio.cmake" in CMAKE_MODULE_PATH this project has
+[4.085s]   asked CMake to find a package configuration file provided by "bram_uio",
+[4.085s]   but CMake did not find one.
+[4.085s] 
+[4.085s]   Could not find a package configuration file provided by "bram_uio" with any
+[4.085s]   of the following names:
+[4.085s] 
+[4.086s]     bram_uioConfig.cmake
+[4.086s]     bram_uio-config.cmake
+[4.086s] 
+[4.086s]   Add the installation prefix of "bram_uio" to CMAKE_PREFIX_PATH or set
+[4.086s]   "bram_uio_DIR" to a directory containing one of the above files.  If
+[4.086s]   "bram_uio" provides a separate development package or SDK, be sure it has
+[4.086s]   been installed.
+[4.087s] 
+[4.087s] 
+[4.087s] -- Configuring incomplete, errors occurred!
+[4.087s] See also "/home/philip/Embedded_programming/Embedded_systems_final_clean/build/project_ros2_pkg/CMakeFiles/CMakeOutput.log".
+[4.087s] See also "/home/philip/Embedded_programming/Embedded_systems_final_clean/build/project_ros2_pkg/CMakeFiles/CMakeError.log".
+[4.101s] Invoked command in '/home/philip/Embedded_programming/Embedded_systems_final_clean/build/project_ros2_pkg' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/philip/Embedded_programming/Embedded_systems_final_clean/project-ROS2-pkg -DCMAKE_INSTALL_PREFIX=/home/philip/Embedded_programming/Embedded_systems_final_clean/install/project_ros2_pkg

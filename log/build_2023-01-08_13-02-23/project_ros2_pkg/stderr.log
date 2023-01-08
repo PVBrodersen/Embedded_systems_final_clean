@@ -1,0 +1,17 @@
+CMake Error at CMakeLists.txt:24 (find_package):
+  By not providing "Findbram_uio.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "bram_uio",
+  but CMake did not find one.
+
+  Could not find a package configuration file provided by "bram_uio" with any
+  of the following names:
+
+    bram_uioConfig.cmake
+    bram_uio-config.cmake
+
+  Add the installation prefix of "bram_uio" to CMAKE_PREFIX_PATH or set
+  "bram_uio_DIR" to a directory containing one of the above files.  If
+  "bram_uio" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
