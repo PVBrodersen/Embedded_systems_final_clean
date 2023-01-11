@@ -13,6 +13,8 @@ using namespace std::chrono_literals;
 float x,y = 0.0;
 float [] invres = {0.0,0.0};
 
+
+
 class MotorPublisher : public rclcpp::Node
 {   
     public:
@@ -52,6 +54,10 @@ class MotorPublisher : public rclcpp::Node
 
       int pose = 0;
 
+      while(!XNn_inference_IsDone(&neuralNet)){}
+
+      pose = (int)XNn_inference_Get_return(&neuralNet);
+      
       switch (pose)
       {
       case 0: // 
