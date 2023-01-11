@@ -5,18 +5,12 @@
 #include <opencv2/opencv.hpp>
 
 #include <bram_uio.h>
-#include <xnn_inference.h>
-#include <xparameters.h>
-
+#include <../drivers/nn_inference_v1_0/xnn_inference.h>
 
 BRAM bram0(0,64000);
-
-XNn_inference neuralNet;
-
+XNn_Inference NN;
 const int target_width = 32;
 const int target_height = 18;
-
-const char* AI_name = "al";
 
 class ImageSubscriber : public rclcpp::Node
 {
@@ -31,12 +25,13 @@ class ImageSubscriber : public rclcpp::Node
 					10,
 					std::bind(&ImageSubscriber::onImageMsg, this, std::placeholders::_1)
 			);
-    		x_status = XNn_inference_Initialize(&neuralNet, AI_name);
+			XNn_inference_Initialize(&NN,'al');
+			
 _			
 
 		}
 
-	private:
+	private:s
 		rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr camera_subscription_;
 
 		void onImageMsg(const sensor_msgs::msg::Image::SharedPtr msg) {
@@ -59,8 +54,8 @@ _
 				}
 				
 			}
-
-			XNn_inference_Start(&neuralNet);			
+			
+			XNn_inference_Start(&NN)
 
 
 			RCLCPP_INFO(this->get_logger(), "Successfully loaded image");
