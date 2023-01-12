@@ -116,5 +116,6 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
   rclcpp::spin(std::make_shared<MotorPublisher>());
   rclcpp::shutdown();
+  XNn_inference_Release(&NN);
   return 0;
 }
