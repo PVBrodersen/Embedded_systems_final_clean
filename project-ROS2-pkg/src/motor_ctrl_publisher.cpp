@@ -103,3 +103,10 @@ class MotorPublisher : public rclcpp::Node
     rclcpp::Publisher<dynamixel_sdk_custom_interfaces::msg::SetPosition>::SharedPtr publisher_;
     size_t count_;
 };
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MotorPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
