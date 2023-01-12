@@ -8,10 +8,13 @@
 #include <rclcpp/rclcpp.hpp>
 #include <msg/set_position.hpp>
 
+#include <../drivers/nn_inference_v1_0/xnn_inference.h>
+
 using namespace std::chrono_literals;
 
 float x,y = 0.0;
 float [] invres = {0.0,0.0};
+XNn_Inference NN;
 
 
 
@@ -22,21 +25,26 @@ class MotorPublisher : public rclcpp::Node
         {
             publisher_ = this->create_publisher<dynamixel_sdk_custom_interfaces::msg::SetPosition>("motor_ctrl",10);
             timer_ = this->create_wall_timer(
-                500ms, std::bind(&MotorPublisher::timer_callback, this));            
+                500ms, std::bind(&MotorPublisher::timer_callback, this));    
+            
+            XNn_inference_Initialize(&NN,'ai');
         }
 
     private:
-    float* inverse(float x, float y){
-    float l1 = 1;
-    float l2 = 1;
-    float d = 2*l1*l2;
-    float n = (x*x+y*y)-(l1*l1-l2*l2);
-    float o1 =  atan(y/x) * (180/M_PI);
-    float o2 = acos(n/d) * (180/M_PI);
-     
-    float myNum[] = {o1,o2};
-    return myNum;
+
+    float* inverse(float x, float y)
+    {
+        float l1 = 1;
+        float l2 = 1;
+        float d = 2*l1*l2;
+        float n = (x*x+y*y)-(l1*l1-l2*l2);
+        float o1 =  atan2(y,x) * (180/M_PI);
+        float o2 = acos(n/d) * (180/M_PI);
+        
+        float myNum[] = {o1,o2};
+        return myNum;
     }
+
     void timer_callback()
     {
       //auto message = std_msgs::msg::String();
@@ -54,9 +62,9 @@ class MotorPublisher : public rclcpp::Node
 
       int pose = 0;
 
-      while(!XNn_inference_IsDone(&neuralNet)){}
+      while(!XNn_inference_IsDone(&NN)){}
 
-      pose = (int)XNn_inference_Get_return(&neuralNet);
+      pose = (int)XNn_inference_Get_return(&NN);
       
       switch (pose)
       {
