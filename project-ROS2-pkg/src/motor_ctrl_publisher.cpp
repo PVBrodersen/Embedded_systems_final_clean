@@ -64,84 +64,41 @@ class MotorPublisher : public rclcpp::Node
         /* code */
         x = 2*sqrt(2);
         y = 2*sqrt(2); 
-        
         invres = inverse(x,y);
-
-        // publish message for first joint
-        message.data = joint_1 + std::to_string(invres[0]);
-        publisher_->publish(message);
-
-        // publish message for second joint
-        message.data = joint_2 + std::to_string(invres[1]);
-        publisher_->publish(message);
-
         break;
       case 1:
-
-      x = 1.00
-      y = 1.00
-      
-      invres = inverse(x,y);
-
-      // publish message for first joint
-        message.data = joint_1 + std::to_string(invres[0]);
-        publisher_->publish(message);
-
-        // publish message for second joint
-        message.data = joint_2 + std::to_string(invres[1]);
-        publisher_->publish(message);
+        x = 1.00;
+        y = 1.00;
+        invres = inverse(x,y);
         break;
-        
       case 2:
-      x = 0.0;
-      y = 2.0
-      
-      invres = inverse(x,y);
-
-      // publish message for first joint
-        message.data = joint_1 + std::to_string(invres[0]);
-        publisher_->publish(message);
-
-        // publish message for second joint
-        message.data = joint_2 + std::to_string(invres[1]);
-        publisher_->publish(message);
+        x = 0.0;
+        y = 2.0;
+        invres = inverse(x,y);
         break;
-
       case 3:
-
-      x = 1.00;
-      y = 1.00
-
-      invres = inverse(x,y);
-
-      // publish message for first joint
-        message.data = joint_1 + std::to_string(invres[0]);
-        publisher_->publish(message);
-
-        // publish message for second joint
-        message.data = joint_2 + std::to_string(invres[1]);
-        publisher_->publish(message);
+        x = 1.00;
+        y = 1.00
+        invres = inverse(x,y);
         break;
       case 4:
-      x = 2.0;
-      y = 0.0;
-
-      invres = inverse(x,y);
-
-      // publish message for first joint
-        message.data = joint_1 + std::to_string(invres[0]);
-        publisher_->publish(message);
-
-        // publish message for second joint
-        message.data = joint_2 + std::to_string(invres[1]);
-        publisher_->publish(message);
-        break;
-    
-      
+        x = 2.0;
+        y = 0.0;
+        invres = inverse(x,y);
+        break;  
       default:
         break;
       }
+
+      // publish message for first joint
+      message.data = joint_1 + std::to_string(invres[0]);
+      publisher_->publish(message);
+
+      // publish message for second joint
+      message.data = joint_2 + std::to_string(invres[1]);
+      publisher_->publish(message);
     }
+
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<dynamixel_sdk_custom_interfaces::msg::SetPosition>::SharedPtr publisher_;
     size_t count_;
