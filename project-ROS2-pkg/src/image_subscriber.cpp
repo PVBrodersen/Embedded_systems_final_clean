@@ -25,13 +25,13 @@ class ImageSubscriber : public rclcpp::Node
 					10,
 					std::bind(&ImageSubscriber::onImageMsg, this, std::placeholders::_1)
 			);
-			XNn_inference_Initialize(&NN,'al');
+			XNn_inference_Initialize(&NN,'ai');
 			
 _			
 
 		}
 
-	private:s
+	private:
 		rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr camera_subscription_;
 
 		void onImageMsg(const sensor_msgs::msg::Image::SharedPtr msg) {
