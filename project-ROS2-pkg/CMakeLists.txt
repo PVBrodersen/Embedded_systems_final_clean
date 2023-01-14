@@ -23,6 +23,7 @@ find_package(OpenCV REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(bram_uio REQUIRED)
 find_package(xnn_inference REQUIRED)
+find_package(std_msgs REQUIRED)
 
 add_executable(image_subscriber
 	src/image_subscriber.cpp
@@ -36,6 +37,8 @@ ament_target_dependencies(image_subscriber
 	OpenCV
 	cv_bridge
   bram_uio
+  xnn_inference
+  std_msgs
 )
 ament_target_dependencies(motor_ctrl_publisher
 	rclcpp
@@ -44,6 +47,7 @@ ament_target_dependencies(motor_ctrl_publisher
 	cv_bridge
   bram_uio
   xnn_inference
+  std_msgs
 )
 install(TARGETS image_subscriber DESTINATION lib/${PROJECT_NAME})
 

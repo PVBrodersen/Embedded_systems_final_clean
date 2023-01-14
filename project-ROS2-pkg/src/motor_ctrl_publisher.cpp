@@ -7,6 +7,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <msg/set_position.hpp>
+#include "std_msgs/msg/empty.hpp"
 
 #include <../drivers/nn_inference_v1_0/xnn_inference.h>
 
@@ -24,8 +25,13 @@ class MotorPublisher : public rclcpp::Node
         MotorPublisher():Node("motor_publisher"), count_(0)
         {
             publisher_ = this->create_publisher<dynamixel_sdk_custom_interfaces::msg::SetPosition>("motor_ctrl",10);
+            //option 1: timer based writing
             timer_ = this->create_wall_timer(
                 500ms, std::bind(&MotorPublisher::timer_callback, this));    
+            //option 2: synch message based callback
+            subscription_ = this->create_subscription<std_msgs::msg::Empty>(
+            "synch", 10, std::bind(&MotorPublisher::synch_callback, this, _1));
+            
             
             XNn_inference_Initialize(&NN,'ai');
         }
@@ -44,6 +50,67 @@ class MotorPublisher : public rclcpp::Node
         float myNum[] = {o1,o2};
         return myNum;
     }
+
+    void synch_callback()
+    {
+    RCLCPP_INFO(this->get_logger(), "Start Neural Network Processing");
+          auto message = dynamixel_sdk_custom_interfaces::msg::SetPosition();
+
+      std::string joint_1 = '2';
+      std::string joint_2 = '3';
+
+      float angle_1 = 0.0;
+      float angle_2 = 0.0;
+
+      int pose = 0;
+
+      while(!XNn_inference_IsDone(&NN)){}
+
+      pose = (int)XNn_inference_Get_return(&NN);
+      
+      switch (pose)
+      {
+      case 0: // 
+        /* code */
+        x = 2*sqrt(2);
+        y = 2*sqrt(2); 
+        invres = inverse(x,y);
+        break;
+      case 1:
+        x = 1.00;
+        y = 1.00;
+        invres = inverse(x,y);
+        break;
+      case 2:
+        x = 0.0;
+        y = 2.0;
+        invres = inverse(x,y);
+        break;
+      case 3:
+        x = 1.00;
+        y = 1.00
+        invres = inverse(x,y);
+        break;
+      case 4:
+        x = 2.0;
+        y = 0.0;
+        invres = inverse(x,y);
+        break;  
+      default:
+        break;
+      }
+
+      // publish message for first joint
+      message.data = joint_1 + std::to_string(invres[0]);
+      publisher_->publish(message);
+
+      // publish message for second joint
+      message.data = joint_2 + std::to_string(invres[1]);
+      publisher_->publish(message);
+    }
+
+    rclcpp::Subscription<std_msgs::msg::Empty>::SharedPtr subscription_;
+
 
     void timer_callback()
     {
@@ -111,6 +178,7 @@ class MotorPublisher : public rclcpp::Node
     rclcpp::Publisher<dynamixel_sdk_custom_interfaces::msg::SetPosition>::SharedPtr publisher_;
     size_t count_;
 };
+
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
