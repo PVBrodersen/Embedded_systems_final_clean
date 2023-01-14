@@ -56,8 +56,8 @@ class MotorPublisher : public rclcpp::Node
     RCLCPP_INFO(this->get_logger(), "Start Neural Network Processing");
           auto message = dynamixel_sdk_custom_interfaces::msg::SetPosition();
 
-      std::string joint_1 = '2';
-      std::string joint_2 = '3';
+      uint8_t joint_1 = 2;
+      uint8_t joint_2 = 3;
 
       float angle_1 = 0.0;
       float angle_2 = 0.0;
@@ -101,11 +101,13 @@ class MotorPublisher : public rclcpp::Node
       }
 
       // publish message for first joint
-      message.data = joint_1 + std::to_string(invres[0]);
+      message.id = joint_1;
+      message.position = (int)(invres[0]);
       publisher_->publish(message);
 
       // publish message for second joint
-      message.data = joint_2 + std::to_string(invres[1]);
+      message.data = joint_2;
+      message.position = (int)(invres[1]);
       publisher_->publish(message);
     }
 
